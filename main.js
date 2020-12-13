@@ -1,8 +1,8 @@
 var express = require("express");
 var bodyParser = require('body-parser');
 
-//var index = require('./routes/index')
-//var ec = require('./routes/ec');
+var index = require('./routes/index')
+var ec = require('./routes/ec');
 var orderv2 = require('./routes/orderv2');
 
 var app = express();
@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname+'/public'));
 
-//app.use('/', index);
-//app.use('/api/paypal/ec', ec);
+app.use('/', index);
+app.use('/api/paypal/ec', ec);
 app.use('/api/paypal/orderv2/',orderv2);
 
 var port = process.env.PORT || '8080';
